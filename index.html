@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Title of the document</title>
+<script src="main.js"></script>
+</head>
+<body>
+
+<!--<button onclick="myFunction()">Try it</button>-->
+
+  <script>
+var nbImage = 0;
+var para = document.createElement("p");
+var node = document.createTextNode("LA TRIFORCE DE LA HONTE VERSION DOM");
+para.appendChild(node);
+document.body.appendChild(para);
+
+function sound() {
+  var audio = document.createElement("AUDIO");
+  var intervalID;
+  audio.setAttribute("src" , "the_faces_of_evil.mp3");
+  audio.autoplay = true;
+  audio.controls = true;
+  audio.load();
+  document.body.appendChild(audio);
+}
+sound();
+
+function interval(x) {
+  intervalID = window.setInterval(animation, 115);
+}
+interval();
+//div
+var div1 = document.createElement("div");
+div1.style.height ="240px";
+div1.style.width ="310px";
+div1.style.overflow = "hidden";
+
+//fonction animation
+function animation(x) {
+  var x = document.createElement("IMG"); //pour chaque element on cree un element img
+  x.style.position = "absolute";
+  //x.style.backgroundColor = "green";
+  document.body.appendChild(x);
+  document.body.appendChild(div1).appendChild(x);
+
+  x.setAttribute("src", "Link_the_faces_of_evil_Intro/"+nbImage+".png"); //on charge les images
+  console.log(nbImage,'nombre image');
+  x.setAttribute("width", "304"); //on donne une taille a image donc une largeur
+  x.setAttribute("height", "228");//puis une hauteur
+  x.setAttribute("alt", "The Pulpit Rock"+nbImage+"zelda");//alt de l'image
+
+if (nbImage <= 536) {
+    nbImage++
+  } else {
+    clearInterval(intervalID);
+    return alert('FIN ?')
+}
+}
+  </script>
+
+  </body>
+  </html>
